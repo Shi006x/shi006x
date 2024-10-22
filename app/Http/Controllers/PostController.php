@@ -13,9 +13,19 @@ class PostController extends Controller
     } 
 
     public function getByLimit(int $limit_count = 10)
-{
-    // updated_atで降順に並べたあと、limitで件数制限をかける
+    {
     return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
-}
+    }
+
+/**
+ * 特定IDのpostを表示する
+ *
+ * @params Object Post // 引数の$postはid=1のPostインスタンス
+ * @return Reposnse post view
+ */
+    public function show(Post $post)
+    {
+    return view('posts.show')->with(['post' => $post]);
+    }
 }
 ?>
