@@ -21,6 +21,10 @@ class Post extends Model
     {
     return view('posts.create');
     }
+    protected $fillable = [
+        'title',
+        'body',
+    ];
 
 }
 ?>
